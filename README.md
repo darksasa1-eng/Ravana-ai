@@ -8,7 +8,7 @@
 
 <img src="assets/banner.gif" alt="RAVANA AI banner" width="100%"/>
 
-[![version](https://img.shields.io/badge/RAVANA-v1.3-red?style=flat-square)](https://github.com/)
+[![version](https://img.shields.io/badge/RAVANA-v1.4-red?style=flat-square)](https://github.com/)
 [![price](https://img.shields.io/badge/price-100%25%20FREE-brightgreen?style=flat-square)](https://github.com/)
 [![kali](https://img.shields.io/badge/Kali%20Linux-ready-white?style=flat-square&labelColor=1a1a2e)](https://www.kali.org/)
 [![termux](https://img.shields.io/badge/Termux%20%2F%20Android-ready-white?style=flat-square&labelColor=1a1a2e)](https://termux.dev/)
@@ -39,6 +39,7 @@ it runs **100% free**, straight in your shell, colored in nothing but **white, r
 |---|---|
 | 💬 Natural chat | Fluent in **English · සිංහල · Singlish** (and every major language — it mirrors you) |
 | 🏗️ Full-build engine | Complete production codebases — **500 / 1000 / 5000+ lines** when the task deserves it, multi-file, zero placeholders |
+| 💾 Files land on your device | Generated code auto-saves to `~/ravana-saves` (or your folder) — never just typed in the terminal · `/saves` to configure · ⚡ tools run instantly, no y/n spam (`/trust off` if you want confirmations) |
 | 🎨 Elite web design | `/webgen` — premium $10k-template quality sites: design system, animations, dark mode, responsive |
 | 💻 AI file tools | `/explain` `/review` `/refactor` `/tests` `/convert` — engineer-grade file analysis & fixes |
 | 📄 Docs automation | `/readme` auto-generates a superb README · `/commitmsg` writes perfect commit messages |
@@ -161,7 +162,8 @@ Core
 /memory · /remember · /forget    long-term memory
 /new · /save · /sessions · /load sessions
 /models · /model <name>          switch core
-/run <cmd> · /trust on|off       shell · auto-approve
+/run <cmd> · /trust on|off       shell · instant tools (default ON)
+/saves on|off · /saves folder <path>   auto-save code files to device
 /clear · /exit
 ```
 
@@ -211,6 +213,9 @@ copies — it is blocked technically by the tamper lock above and legally by the
 - **NDJSON streaming client** — live token streaming with tok/s telemetry
 - **Tamper-locked sealed loader** — encrypted-in-repo, decrypted-in-memory execution, integrity mesh + identity pins
 - **Persistent memory store** — JSON-backed facts + session autosave/resume
+- **File delivery engine** — every generated file lands on disk: `write`-block
+  file drops plus auto-save of long inline code (`/saves` controls it — on by
+  default, folder configurable, works on PC and Termux/Android)
 - **Tool execution engine** — sandboxed shell, file read/write/edit, live web search
 
 ## 👑 The Dev
@@ -240,7 +245,7 @@ License — see [LICENSE](LICENSE).
  ░██▓ ▒██▒ ▓█   ▓██▒▒▀█░   ▓█   ▓██▒▒██░   ▓██░ ▓█   ▓██▒
 ```
 
-**RAVANA AI v1.3** · crafted with 🔴 by **Sasa Dev**
+**RAVANA AI v1.4** · crafted with 🔴 by **Sasa Dev**
 
 *legends never die*
 
