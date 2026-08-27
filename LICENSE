@@ -1,0 +1,30 @@
+RAVANA AI — Non-Rebrand License v1.0
+Copyright (c) 2026 Sasa Dev
+
+1. GRANTED — you MAY:
+   • install and use RAVANA AI, personally or inside your organization
+   • study how it works
+   • fork this repository for the purpose of contributing improvements
+     back to the official RAVANA AI repository via pull requests
+
+2. PROHIBITED — you MAY NOT:
+   • rename, rebrand or relaunch RAVANA AI under any other name, logo or
+     identity for yourself or anyone else
+   • remove, hide or alter the "Sasa Dev" / RAVANA attribution in any way
+   • redistribute modified, re-sealed or "re-themed" copies of this software
+   • extract, rewrite or bypass the sealed core and its tamper-lock system
+   • sell or commercialize this software or derivatives of it
+
+3. INTEGRITY
+   The sealed core files (.enc) and the boot integrity mesh are part of the
+   licensed work. Modifying them voids this license entirely. Unauthorized
+   rebranded copies may be reported to GitHub (DMCA) and to the maintainer.
+
+4. TRADEMARK
+   "RAVANA AI", the RAVANA logo and the RAVANA terminal identity are reserved
+   to Sasa Dev.
+
+5. NO WARRANTY
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES OR
+   OTHER LIABILITY ARISING FROM THE USE OF THIS SOFTWARE.
