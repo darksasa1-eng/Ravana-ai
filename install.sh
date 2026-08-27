@@ -17,6 +17,14 @@ printf "  ${WHITE}${BOLD}RAVANA AI${RS} ${WHITE}installer${RS}   ${DIM}by Sasa D
 
 command -v python3 >/dev/null 2>&1 || { printf "${RED}python3 not found. run: sudo apt install python3${RS}\n"; exit 1; }
 
+TERMUX=0
+[ -n "${TERMUX_VERSION:-}" ] && TERMUX=1
+if [ $TERMUX -eq 1 ]; then
+  command -v python3 >/dev/null 2>&1 || { printf "${RED}python3 not found. run: pkg install python${RS}\n"; exit 1; }
+else
+  command -v python3 >/dev/null 2>&1 || { printf "${RED}python3 not found. run: sudo apt install python3${RS}\n"; exit 1; }
+fi
+
 DEST="$HOME/.rav"
 mkdir -p "$DEST/core"
 chmod 700 "$DEST"
@@ -46,34 +54,34 @@ enpDTkZGDHpEERwAIAsMDQ5GVhFaUkddWl5aF0lTXQ8LCWgeITdtay4iMC0jLCk+Omd5CmhrCXV3
 angGNzo/Z1R/QEFCQ0RFRhUJABkOTDsPAwUUNwEGGgRfWgofGhBdHRDy8/fz8ODipaGDqqusrdHr
 sKyy8e3h8+SwxuK7wr3B5oDHzdGE+t6LiPbTi8XDjtXZwZrs18Gal+fSyZP3kZ7Tpa/qnKex7+7h
 4MDr7O3uvbWlp6G69ay7sbv0v7m+sbKQk4eQl825g8HHjo6PgoqK2NOHh5LYztXR86W2vbPewiBr
-cWxqK2poaW15I1N4YCc3Q0RdJS8hc34hKy4qJSR7UWgWS1AQEGpOeWlsSmZZWQF6YABgdEZnYUBD
-SE1FBgh2Ni4OFR0wKSc/EBN8LwsKEzs6Kn83PSMVbQxvbxAODSQXNikzBF4iGxsvRDsPFzcxFRhB
-MjwcPxkzOxpKLRAr9eD28cjE1sjxvPjH2sjX4rv72N/84qHCyN/L/qn/8/OQkPri1MTSz8n+msLi
-9fTqhf7T6+SD5ODby/Ps5s3H27mrj7upvfWXoIT7p7S+/I3/ueK2l5aXvuCPsaGzn5+wpbuUrZyV
-lIHDo9yinoW0vricpcu5v6y/rc+vi4mEjJo4b2d0XFVLf2xTYV9GTEdeaXQrckREb0NzUn5qSjZ5
-UkdJb0VuSxVBQHodYxt3T1VDY2NKZ1h1Y35sVlxlR0kOGTcuCXUWNQ1jAy8xH3svJhMjZmsOFA4R
-a3YZOA8qP2oVNFYAAiEHHiwdJjkJVDhXPgMhGh4yO1hMIU4wEjkbTMXStbfiseu04PDp2e3B9sX3
-yeLY0O+hwdfdqdDQ5MfN5ufB0uzX39Ge4ubswtnBn4L1+f3Y3MH78d3L38n8+ta2j7qAl6v36Pul
-sIL6h4r7npWahY2m5+Kg7u+xt+2Sj7mA14mmsaOzgaWFpLuu3cCqq5i+tryFr469gMuxjaS1SDEz
-QHFEaX5vZUBHOUM4ViMmc0Rie1xYaUFQaTMvLnB1SFtEHA5NbQdebwQaYEdGdABBHEMICxAREDBf
-WVseYChpHTNtf0xnaGlqOSk5Oz0+cToyJz06Pjp3KTM9b2tpSA4SBgpNORdESUgZDk9HQQIUExdc
-XF9ZEBwCHxUaGwz0qauJ2+fn46i0qsXj4+uF9v7gs8vn8/u0ucXs/fPqv8nPgvzp5Oj8is/Dx8ne
-jPKe2MbW2caenoKzmpucneHP4PzirLfrtqa8oeSho6Sg54+V/vOLp7O78dP6+/z9t7nAj42XxIqV
-yZiInoPCiJaGg4WB26uF39eXi9qklNWhjykhIz4kWnFmZn0wASwtLi8wMTIzS3d3czgkOkRueHIV
-AAECAwQFBgdKW09KRydHSRBuUFJQFV9EGHdVVVkdX1EkYR0rbCo1aTgoPiNiKDY/MT82JicwJH96
-J3V1LjwocBIAFE0UHEROQUlLVkwyIy4+KlAAAAAUVSVDcFtcXV4g4uDmo7mlpOvn6O7u/q+E5vax
-zfH18bb+67n09Oi90PDOxJiphIWGh9jbw8XYhYzzyIDQ6I2E2+vAiNjgjdCen4WTkIyW5f/+8umJ
-hJ6I7puRnIKWhpCS94P7+vD8gry+hMHJw8a4up/Zi7Hbgc/H5dDR0tOEh5+ZjNHYp4TMnKQzMG8j
-JGRzc2BsZH9lbmd7aTFkdmZ8cH57eG5yc3M+eUFITkZABcSnvAlYTkJMQ0ZeVhJcRhVbWFxQXEJV
-U1kfEgAUAgoEZi47aSQkOG0+KiI8OycgMDJ5BCFrOQdtM31Ja0JDREUWFQEHHkNOMRZeEipBQhlV
-VhAdDVoPFBheHvX16ubq8e/kqOv/4uDpruni/v+z4P3zt/f//PL/9P/zgPPj9eXr54fp4IrZyd3B
-3NnF3cHNm+rPidvhi9Gfl7Xg4eLjt7y16a2xo7/k9Pfm2o69obCwpPfl+YH5v6+nr5SOwM/Ex4WL
-gYyEn87Bzs2Sg5Oamtfa19qUn5aTj4fdLCEgd2tqanQqJSopbX1+LU0bTX57cWU3JTlhZhZ7cW0A
-fkxCSUAGTkYJdUReSUtdCjsSExQVaUcYBBpUTxNOXjQpbCkrLChvFw1maxMjLyI1cXlzdnszOTt7
-c1F8fX5/PxIQAERYRjgdB0IEHAgARy8BW10GEBcTUFBTcVxdXl/f7KK+pPH/9+36pMbj6fvj9cXr
-4/G9yfn59P+ylr2+v4D+z437+sDOxMz19IyQjvDAu5KTlJXFzsuX19TYyNLas5qdraWoo5ro9OqU
-ocfu7/Dxjb67saWMh7e7trmA/uLAvo/pxMXGx42Rj4jEjoGCgJieltyqhYWb1dqkjNHe3WV5Z2Am
-LConV2QkVFNpZ2xkTk06Hkp7eHxqQTl9bW49fQ9PQk1LDlRRWgRKXkpYdAELbxo+
+cWxqK2poaW15I1N4YCc3Q0RdJS8ldH16eHp/KSR7UWhVW1B2R2pxeW1GaR9tTV14VWkHWXxlTF19
+Q35PTmU4DRMKJ3YgMRp5G2QLBzwXMhgBMgJiZQ40CDg8bRxsBVknCCVUD1QDHh0ZEzgfXzgmOhMk
+EkIRRDIDIB0MK0c7yen0wP7DtOTZub3exPj8+eaj++TD0qLG/Pjo1NTKx+vlz+nqkYrt6Jvu4+3V
+xPzm5dDG/fPd/fLZ7NPr8PnSi/OutJWo9vX1noOvp66qmqectrehkeHus5bssum2ibbv0YWEr6qO
+lNKQg6+Zir2hjJa1wIqun7WWk6iJkM2SjqVRakpEMGdgQWUiYm9JIjZHcUdnS3p4fXN1clIvcylV
+d0pPEVV8FEphRmtnR2pfXGl7U1NnX0VAWVJDSnhEcEdLMi07dxE/FCMJCBMcCy96HT4WBicwOw4h
+LwgbMG1oJxJXJjtWXFwkMjswWRsuPV9fORUYXAEzGjItLx8oNVZLR8q5xrr2sMfg4aLkx77j7+jK
++/vA3ubepfrj69r9767T79DgxOeV9sLvn+ni/frp45vI38DC2sHA4pbTyPTMz+WXgKvwtLL2gqb4
+s76Y+Yas+7iogbaChbHp6umtremSpqqpr6udrp+fndHBmqbaoIm+t4ipgLCEgIyJyJKZioaraHsx
+KDc2VTN5TVNie0dXTGJBXld6THFtL219WF52Ui9HW0NZYF1UFhFAYmpudX0WRgUPFB0cPFNdXxpk
+VBVhT2l7SGNkZWY1LT0/OSJtJi4jOT46NnslPzlrb210Mi46Dkk9E0hFRBUKS0NFHggPC1hYW10c
+EA4TER4fCAhVV3Xf4+PnpLimyefn74Hq4vyvz+P3/7i1yeD59+679fO+wO3g7PiGw8/LzdqI9oLE
+2srdwpqajr+Wl5iZ5cucgJ7Qs++yorCt6K2noKTjk4ni74+jt7/93/b3+PmzvfyzsavAjpHNlISS
+j8aMkoKfmZ3Hr4Hb05uH1qiQ0aWL1d3fwiBedWJqcTwNKCkqKywtLi9Pc3N3NCg2SGp8dhE8PT4/
+AAECA0ZXQ0ZDI0NNDHJMTlQRW0AUe1lZXRlbVVgdYVdoLjFtNCQyL2YsMjstIyo6IzQge3YreXkq
+OCx0LjwocRAYQEpNRUdaSDYnKiI2TBwEBBBRKU98V1hZWiQeHBpfvaGg7+vk4uL6q4Di6q3R7fH1
+svrntfj47LnU9PL4pJWAgYKD1NfPydyBiPfUnMz0iYDf78yE1OyJ1Jqb+e/s8JLh+/r+5YWImozq
+n42AnoqClJbzj/f2/PiGuLq4/fX/wry+m9WHvdeFy8PhzM3Oz4CDm52A3dSrgMiYoM/Mk98gYHd3
+bGBoc2FqY391LXhqYnh0end0Yn53dzp9fXRyekQBwKOwBVRCRkhHQkJKDkBCEV9cUFxQTlFXXRtu
+fGh+DgBiKjdlKCg8aTouPiAnOyQ0Nn0ILWc1A2k3eXVXfn9AQRIRDQsST0o1EloONl1eHVFSFBEB
+VgMQHFoaCQkWGu716+Ck5/Pu5O2q7f7i46/k+fez+/Pw/vvw+/e8z9/J4e/jg+XshtXN2cXYxdnB
+3cmf7suF1+2H1ZuTsZydnp+zuLHtob2vs+Dw8+LGkqG9tLSg8+n1jfW7q6OrqLL888DDgY+NgIiT
+ysXKyY6fj4ae097T1piTmpeLg9nQ3dyLb25ucCYpJiVpeXopUQdRYn91YTMpNW1qEn91aTxCcH5N
+RAJKSgV5SFpNT1kWJw4PEBFtQxQIFlhLF0paSFUQVS8oLGsbAWpnFycrJiltZW9yfzc9N3d/XXh5
+ensDLiw8QFxCPBELTggYDARDMx1HQQIUExdcXF99WFlaWyMQXkKg9fvz4faoyuft/+fp2ff/9bnN
+/fX4876Subq7vMLzsf/+xMrIwPn4iJSK9Nynjo+QkcHKx5vb2NzM1t7P5uHRoaynnuT45pilw+rr
+7O2Ror+1oYiLu7e6vYT65vyCs9XAwcLDgZ2DhMCKhYachIKK2K6BgZfZ1qiI1drZmYWbnCIoLiNb
+aChYV21jaHhSUSYaTn98cGZNNXlpajlBM3N+SU8KUF1WCEZaTlxwHRdzBjo=
 SEED64
 
 python3 - "$DEST" <<'PYUNMASK'
@@ -120,7 +128,10 @@ chmod 700 "$DEST/rav.py"
 LAUNCHER='#!/usr/bin/env bash
 exec python3 "$HOME/.rav/rav.py" "$@"'
 TARGET=""
-if [ -w /usr/local/bin ] 2>/dev/null; then TARGET=/usr/local/bin/rav
+if [ $TERMUX -eq 1 ]; then
+  TARGET="${PREFIX:-/data/data/com.termux/files/usr}/bin/rav"
+  mkdir -p "$(dirname "$TARGET")"
+elif [ -w /usr/local/bin ] 2>/dev/null; then TARGET=/usr/local/bin/rav
 elif [ -w "$HOME/.local/bin" ] || mkdir -p "$HOME/.local/bin" 2>/dev/null; then TARGET="$HOME/.local/bin/rav"
 fi
 if [ -n "$TARGET" ]; then
