@@ -8,7 +8,7 @@
 
 <img src="assets/banner.gif" alt="RAVANA AI banner" width="100%"/>
 
-[![version](https://img.shields.io/badge/RAVANA-v1.2-red?style=flat-square)](https://github.com/)
+[![version](https://img.shields.io/badge/RAVANA-v1.3-red?style=flat-square)](https://github.com/)
 [![price](https://img.shields.io/badge/price-100%25%20FREE-brightgreen?style=flat-square)](https://github.com/)
 [![kali](https://img.shields.io/badge/Kali%20Linux-ready-white?style=flat-square&labelColor=1a1a2e)](https://www.kali.org/)
 [![termux](https://img.shields.io/badge/Termux%20%2F%20Android-ready-white?style=flat-square&labelColor=1a1a2e)](https://termux.dev/)
@@ -38,17 +38,23 @@ it runs **100% free**, straight in your shell, colored in nothing but **white, r
 | Capability | What it really does |
 |---|---|
 | 💬 Natural chat | Fluent in **English · සිංහල · Singlish** (and every major language — it mirrors you) |
-| 💻 Coding | Senior-engineer grade code in any language, complete & runnable |
+| 🏗️ Full-build engine | Complete production codebases — **500 / 1000 / 5000+ lines** when the task deserves it, multi-file, zero placeholders |
+| 🎨 Elite web design | `/webgen` — premium $10k-template quality sites: design system, animations, dark mode, responsive |
+| 💻 AI file tools | `/explain` `/review` `/refactor` `/tests` `/convert` — engineer-grade file analysis & fixes |
+| 📄 Docs automation | `/readme` auto-generates a superb README · `/commitmsg` writes perfect commit messages |
 | 🛡️ Ethical hacking | Recon, enumeration, CTF coaching, hardening — authorized targets only |
-| 🌐 Website building | Scaffolds real files on disk and sanity-checks them (agent mode) |
 | 🐙 GitHub actions | Link your token (`/gh`) — RAVANA pushes, edits, deletes files & creates repos directly |
 | 🤖 Automation | Plans → runs commands → verifies → reports, end-to-end |
 | 🧠 Persistent memory | Facts about you survive restarts — view / add / wipe anytime |
 | 🔎 Live research | Search mode pulls real web results and cites sources |
-| 🖥️ System & network panels | `/sys` hardware dashboard · `/net` network map · `/ip` external IP intel |
-| ✅ Task list | `/todo` — persistent tasks with done/del/clear |
-| 🔑 Crypto & CTF utils | `/genpass` password forge · `/hash` md5→sha512 · `/b64` encode/decode |
-| 🗂️ Chat history tools | `/find` searches memory + every past session · `/export` markdown export |
+| 🖥️ System & network panels | `/sys` `/net` `/ip` `/ps` `/monitor` — hardware, network, processes, live CPU/RAM |
+| 📂 Disk tools | `/tree` directory tree · `/bigfiles` largest files · `/dupes` duplicate finder |
+| 🌐 Web intel | `/headers` security-header audit · `/rdap` domain intel · `/shorten` links · `/qr` codes |
+| 🌦️ Daily drivers | `/weather` · `/crypto` prices · `/dict` dictionary · `/calc` · `/ascii` banners |
+| 🔑 Crypto & CTF utils | `/genpass` · `/hash` md5→sha512 · `/b64` · `/otp` TOTP · `/port` encyclopedia |
+| ⏱️ Time tools | `/timer` countdowns · `/watch` live command watcher |
+| ✅ Task list & notes | `/todo` — persistent tasks · `/note` — timestamped notes |
+| 🗂️ History tools | `/find` searches memory + every past session · `/export` markdown · `/stats` usage stats |
 | ⚡ Ultra-fast core | Streaming responses with tok/s telemetry; auto-picks the fastest core |
 | 🔐 Tamper-locked | Every file sealed & integrity-locked — rebranding is impossible |
 
@@ -126,22 +132,36 @@ rm -rf ~/.rav /usr/local/bin/rav
 ## ⌨️ Commands
 
 ```
-/help                        command menu
+/help                        full command menu
 /mode <name>                 normal · coding · agent · search · hack
-/gh <token> · /gh logout     link GitHub — agent pushes/edits/deletes in your repos
-/sys · /net · /ip [addr]     system dashboard · network map · IP intel
-/todo add|done|del|clear     persistent task list
-/genpass [len]               forge a strong password
-/hash <algo> <text|@file>    md5 · sha1 · sha256 · sha512
-/b64 enc|dec <text>          base64 encode / decode
-/find <text>                 search memory + all past sessions
-/export [file]               export chat to markdown
-/new                         fresh session
-/save [title] · /sessions · /load <id>
-/memory · /remember <fact> · /forget
-/models · /model <name>      switch processing core
-/run <cmd>                   run a shell command directly
-/trust on|off                auto-approve agent tools (default: ask first)
+
+Build & code
+/webgen [description]        premium full website generator
+/explain · /review · /refactor <file>     AI file analysis + fixes
+/tests <file> · /convert <lang> <file>    test suites · convertor
+/readme · /commitmsg         auto README · AI commit messages
+
+GitHub
+/gh <token> · /gh logout     link — agent pushes/edits/deletes in your repos
+
+System & net
+/sys · /net · /ip [addr]     system · network · IP intel
+/ps · /monitor               top processes · live cpu/ram
+/tree · /bigfiles · /dupes   dir tree · largest files · duplicates
+/watch <sec> <cmd> · /timer <min>          watcher · countdown
+/headers <url> · /rdap <dom> header audit · domain intel
+
+Tools
+/weather [city] · /crypto <sym> · /dict <word>
+/shorten <url> · /qr <text>  · /port <n> · /otp <secret>
+/calc <expr> · /ascii <text> · /genpass · /hash · /b64
+/todo ... · /note add <text> · /find <text> · /stats · /export
+
+Core
+/memory · /remember · /forget    long-term memory
+/new · /save · /sessions · /load sessions
+/models · /model <name>          switch core
+/run <cmd> · /trust on|off       shell · auto-approve
 /clear · /exit
 ```
 
@@ -151,11 +171,12 @@ RAVANA silently learns durable facts about you (`[MEMORY]` tags are stripped and
 stored) and injects them into every future session. Ask it *“මට මතකද මම මොකක් හදන්නේ?”*
 a week later — it knows. `/memory` shows everything it holds, `/forget` wipes it clean.
 
-## 🧠 System Prompt
+## 🧠 System Prompt (Sealed)
 
-The full identity, rules and training core of RAVANA is published in
-[`system-prompts/RAVANA-SYSTEM-PROMPT.md`](system-prompts/RAVANA-SYSTEM-PROMPT.md) —
-the exact instruction set compiled inside the sealed core. Read how a RAVANA thinks.
+The complete identity, rules, training and design doctrines of RAVANA —
+every mode, every lock, the exact instruction set compiled inside the core —
+ships in [`system-prompts/`](system-prompts) **sealed and encrypted**, exactly
+like the rest of the core. The brain of RAVANA stays RAVANA's.
 
 ## 🔐 Sealed & Tamper-Locked Core
 
@@ -219,7 +240,7 @@ License — see [LICENSE](LICENSE).
  ░██▓ ▒██▒ ▓█   ▓██▒▒▀█░   ▓█   ▓██▒▒██░   ▓██░ ▓█   ▓██▒
 ```
 
-**RAVANA AI v1.2** · crafted with 🔴 by **Sasa Dev**
+**RAVANA AI v1.3** · crafted with 🔴 by **Sasa Dev**
 
 *legends never die*
 
